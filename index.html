@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCat Adventure - El Regreso a Casa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Pantalla de inicio -->
+    <div class="start-screen" id="startScreen">
+        <div class="stars"></div>
+        <div class="start-content">
+            <div class="game-logo">
+                <i class="fas fa-cat"></i>
+                <h1>EcoCat Adventure</h1>
+                <div class="subtitle">El Regreso a Casa</div>
+            </div>
+            
+            <div class="story-box">
+                <h3><i class="fas fa-book-open"></i> La Historia</h3>
+                <p>Durante una fuerte tormenta, un gato casero salió solo y quedó atrapado debido a un corte de electricidad provocado por los rayos. Ahora debe atravesar diferentes niveles llenos de obstáculos ecológicos para regresar seguro a casa con su amo.</p>
+                <div class="eco-message">
+                    <i class="fas fa-leaf"></i>
+                    <span>¡Salva el planeta mientras corres hacia casa!</span>
+                </div>
+            </div>
+
+            <div class="controls-info">
+                <h4><i class="fas fa-gamepad"></i> Controles</h4>
+                <div class="control-grid">
+                    <div class="control-item">
+                        <div class="key">SPACE</div>
+                        <span>Saltar</span>
+                    </div>
+                    <div class="control-item">
+                        <div class="key">↑</div>
+                        <span>Saltar</span>
+                    </div>
+                    <div class="control-item">
+                        <div class="key mobile-only">📱</div>
+                        <span class="mobile-only">Toca para saltar</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="start-btn" onclick="startGame()">
+                <i class="fas fa-play"></i>
+                <span>Comenzar Aventura</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Contenedor del juego -->
+    <div class="game-container" id="gameContainer" style="display: none;">
+        <!-- Fondo animado con capas -->
+        <div class="background">
+            <div class="sky-layer"></div>
+            <div class="clouds-layer"></div>
+            <div class="mountains-layer"></div>
+            <div class="trees-layer"></div>
+        </div>
+
+        <!-- HUD del juego -->
+        <div class="game-hud">
+            <div class="hud-left">
+                <div class="level-display">
+                    <i class="fas fa-flag"></i>
+                    <span>Nivel <span id="currentLevel">1</span></span>
+                </div>
+                <div class="score-display">
+                    <i class="fas fa-star"></i>
+                    <span id="score">0</span>
+                </div>
+            </div>
+            
+            <div class="hud-center">
+                <div class="distance-counter">
+                    <i class="fas fa-route"></i>
+                    <span id="distance">0</span>m
+                </div>
+                <div class="time-counter">
+                    <i class="fas fa-clock"></i>
+                    <span id="gameTime">0:00</span>
+                </div>
+            </div>
+            
+            <div class="hud-right">
+                <div class="lives-display">
+                    <i class="fas fa-heart"></i>
+                    <span id="lives">3</span>
+                </div>
+                <div class="recycled-display">
+                    <i class="fas fa-recycle"></i>
+                    <span id="recycledCount">0</span>
+                </div>
+                <button class="pause-btn" onclick="togglePause()">
+                    <i class="fas fa-pause" id="pauseIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Área de juego -->
+        <div class="game-world" id="gameWorld">
+            <!-- El gato -->
+            <div class="cat" id="cat">
+                <div class="cat-body">
+                    <div class="cat-face">
+                        <div class="cat-eyes">
+                            <div class="eye left"></div>
+                            <div class="eye right"></div>
+                        </div>
+                        <div class="cat-nose"></div>
+                        <div class="cat-mouth"></div>
+                    </div>
+                    <div class="cat-ears">
+                        <div class="ear left"></div>
+                        <div class="ear right"></div>
+                    </div>
+                    <div class="cat-tail"></div>
+                </div>
+            </div>
+
+            <!-- Plataforma base -->
+            <div class="ground" id="ground"></div>
+            
+            <!-- Contenedor de obstáculos y coleccionables -->
+            <div class="objects-container" id="objectsContainer"></div>
+        </div>
+
+        <!-- Indicador de nivel -->
+        <div class="level-transition" id="levelTransition" style="display: none;">
+            <div class="level-content">
+                <h2>¡Nivel <span id="newLevelNumber">2</span>!</h2>
+                <p id="levelDescription">Más obstáculos aparecen...</p>
+                <div class="level-icon">
+                    <i class="fas fa-flag-checkered"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensajes del juego -->
+        <div class="game-message" id="gameMessage"></div>
+    </div>
+
+    <!-- Pantalla de pausa -->
+    <div class="pause-screen" id="pauseScreen" style="display: none;">
+        <div class="pause-content">
+            <h2><i class="fas fa-pause"></i> Juego Pausado</h2>
+            <div class="current-stats">
+                <div class="stat">Nivel: <span id="pauseLevel">1</span></div>
+                <div class="stat">Puntos: <span id="pauseScore">0</span></div>
+                <div class="stat">Distancia: <span id="pauseDistance">0</span>m</div>
+            </div>
+            <div class="pause-options">
+                <button class="pause-btn-option" onclick="togglePause()">
+                    <i class="fas fa-play"></i>
+                    Continuar
+                </button>
+                <button class="pause-btn-option" onclick="resetGame()">
+                    <i class="fas fa-home"></i>
+                    Menú Principal
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de fin de juego -->
+    <div class="game-over-screen" id="gameOverScreen" style="display: none;">
+        <div class="game-over-content">
+            <div class="result-icon" id="resultIcon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h2 id="gameOverTitle">¡Misión Cumplida!</h2>
+            <p id="gameOverMessage">¡El gato llegó a casa después de atravesar todos los niveles!</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <i class="fas fa-flag"></i>
+                    <div class="stat-value" id="finalLevel">1</div>
+                    <div class="stat-label">Nivel Final</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <div class="stat-value" id="finalScore">0</div>
+                    <div class="stat-label">Puntos</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-recycle"></i>
+                    <div class="stat-value" id="finalRecycled">0</div>
+                    <div class="stat-label">Reciclados</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-route"></i>
+                    <div class="stat-value" id="finalDistance">0</div>
+                    <div class="stat-label">Metros</div>
+                </div>
+            </div>
+
+            <div class="eco-tip" id="ecoTip">
+                <i class="fas fa-lightbulb"></i>
+                <p>¡Consejo Ecológico!</p>
+                <span id="ecoTipText">¡Has demostrado que cuidar el medio ambiente puede ser divertido!</span>
+            </div>
+
+            <div class="game-over-buttons">
+                <button class="game-over-btn primary" onclick="resetGame()">
+                    <i class="fas fa-redo"></i>
+                    Jugar de Nuevo
+                </button>
+                <button class="game-over-btn secondary" onclick="showMainMenu()">
+                    <i class="fas fa-home"></i>
+                    Menú Principal
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controles móviles -->
+    <div class="mobile-controls" id="mobileControls" style="display: none;">
+        <button class="mobile-btn jump" id="jumpBtn">
+            <i class="fas fa-arrow-up"></i>
+            <span>SALTAR</span>
+        </button>
+    </div>
+
+    <!-- Indicador de progreso del nivel -->
+    <div class="level-progress" id="levelProgress">
+        <div class="progress-track">
+            <div class="progress-fill" id="levelProgressFill"></div>
+        </div>
+        <div class="progress-label">Progreso del Nivel</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
