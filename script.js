@@ -1,1410 +1,1225 @@
-/* Reset y configuración base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Nunito', sans-serif;
-    overflow: hidden;
-    user-select: none;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-/* === PANTALLA DE INICIO === */
-.start-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    overflow-y: auto;
-}
-
-.stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
-        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: sparkle 3s ease-in-out infinite alternate;
-}
-
-@keyframes sparkle {
-    0% { opacity: 0.7; }
-    100% { opacity: 1; }
-}
-
-.start-content {
-    max-width: 800px;
-    width: 90%;
-    text-align: center;
-    color: white;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.game-logo {
-    margin-bottom: 40px;
-}
-
-.game-logo i {
-    font-size: 80px;
-    color: #FFD700;
-    margin-bottom: 20px;
-    animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-.game-logo h1 {
-    font-family: 'Fredoka One', cursive;
-    font-size: 4rem;
-    margin-bottom: 10px;
-    background: linear-gradient(45deg, #FFD700, #FFA500);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.subtitle {
-    font-size: 1.5rem;
-    color: #E6E6FA;
-    font-weight: 600;
-}
-
-.story-box {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 30px;
-    border-radius: 20px;
-    margin: 30px 0;
-    text-align: left;
-}
-
-.story-box h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #FFD700;
-    text-align: center;
-}
-
-.story-box p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    color: #F0F8FF;
-}
-
-.game-features {
-    display: flex;
-    justify-content: space-around;
-    margin: 25px 0;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255,255,255,0.1);
-    padding: 15px;
-    border-radius: 15px;
-    min-width: 140px;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.feature i {
-    font-size: 1.8rem;
-    color: #FFD700;
-    margin-bottom: 8px;
-}
-
-.feature span {
-    font-size: 0.9rem;
-    text-align: center;
-    color: #E6E6FA;
-    font-weight: 600;
-}
-
-.eco-message {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, #4CAF50, #45a049);
-    padding: 15px 25px;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.eco-message i {
-    margin-right: 10px;
-    font-size: 1.3rem;
-}
-
-.controls-info {
-    margin: 30px 0;
-}
-
-.controls-info h4 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #FFD700;
-}
-
-.control-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.control-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.key {
-    background: linear-gradient(145deg, #4a5568, #2d3748);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 1rem;
-    box-shadow: 
-        0 4px 8px rgba(0,0,0,0.3),
-        inset 0 1px 0 rgba(255,255,255,0.1);
-    min-width: 60px;
-    text-align: center;
-}
-
-.start-btn {
-    background: linear-gradient(45deg, #FF6B6B, #FF8E53);
-    color: white;
-    border: none;
-    padding: 20px 40px;
-    font-size: 1.4rem;
-    font-weight: 700;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 0 auto;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.start-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
-    background: linear-gradient(45deg, #FF5252, #FF7043);
-}
-
-/* === CONTENEDOR DEL JUEGO === */
-.game-container {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Fondo con múltiples capas como Mario Bros */
-.background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.sky-layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, 
-        #87CEEB 0%, 
-        #98FB98 60%, 
-        #90EE90 100%);
-}
-
-.clouds-layer {
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    background: 
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><circle cx="20" cy="10" r="8" fill="rgba(255,255,255,0.8)"/><circle cx="30" cy="8" r="6" fill="rgba(255,255,255,0.7)"/><circle cx="40" cy="12" r="5" fill="rgba(255,255,255,0.6)"/></svg>') repeat-x;
-    animation: scroll-clouds 30s linear infinite;
-    opacity: 0.8;
-}
-
-.mountains-layer {
-    position: absolute;
-    bottom: 200px;
-    width: 150%;
-    height: 200px;
-    background: 
-        linear-gradient(45deg, #4a90e2 0%, transparent 50%),
-        linear-gradient(-45deg, #4a90e2 0%, transparent 50%);
-    background-size: 300px 200px, 300px 200px;
-    background-position: 0 0, 150px 0;
-    background-repeat: repeat-x;
-    animation: scroll-mountains 60s linear infinite;
-    opacity: 0.6;
-}
-
-.trees-layer {
-    position: absolute;
-    bottom: 120px;
-    width: 120%;
-    height: 150px;
-    background: 
-        repeating-linear-gradient(90deg, 
-            transparent 0px, 
-            transparent 80px, 
-            #228B22 80px, 
-            #228B22 100px);
-    animation: scroll-trees 20s linear infinite;
-}
-
-@keyframes scroll-clouds {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
-@keyframes scroll-mountains {
-    from { transform: translateX(0); }
-    to { transform: translateX(-33.33%); }
-}
-
-@keyframes scroll-trees {
-    from { transform: translateX(0); }
-    to { transform: translateX(-20%); }
-}
-
-/* === HUD DEL JUEGO === */
-.game-hud {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background: linear-gradient(135deg, 
-        rgba(0,0,0,0.8) 0%, 
-        rgba(0,0,0,0.6) 100%);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-}
-
-.hud-left, .hud-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.hud-center {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.level-display, .score-display, .lives-display, .recycled-display {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.1);
-    padding: 12px 20px;
-    border-radius: 25px;
-    color: white;
-    font-weight: 700;
-    font-size: 1.2rem;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.level-display i {
-    color: #FF6B6B;
-    font-size: 1.4rem;
-}
-
-.score-display i {
-    color: #FFD700;
-    font-size: 1.4rem;
-}
-
-.lives-display i {
-    color: #FF69B4;
-    font-size: 1.4rem;
-}
-
-.recycled-display i {
-    color: #4CAF50;
-    font-size: 1.4rem;
-}
-
-.distance-counter, .time-counter {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: 600;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    background: rgba(255,255,255,0.1);
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: 1px solid rgba(255,255,255,0.2);
-    margin: 0 10px;
-}
-
-.distance-counter i {
-    color: #87CEEB;
-    font-size: 1.5rem;
-}
-
-.time-counter i {
-    color: #FFD700;
-    font-size: 1.5rem;
-}
-
-.pause-btn {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.2rem;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.pause-btn:hover {
-    background: rgba(255,255,255,0.2);
-    transform: scale(1.1);
-}
-
-/* === MUNDO DEL JUEGO === */
-.game-world {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 80px);
-    overflow: hidden;
-}
-
-/* === EL GATO === */
-.cat {
-    position: absolute;
-    bottom: 120px;
-    left: 150px;
-    width: 60px;
-    height: 60px;
-    z-index: 50;
-    transition: all 0.1s ease;
-}
-
-.cat-body {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.cat-face {
-    position: absolute;
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(145deg, #FF8C00, #FF7F00);
-    border-radius: 50%;
-    top: 8px;
-    left: 8px;
-    box-shadow: 0 3px 15px rgba(255, 140, 0, 0.4);
-}
-
-.cat-eyes {
-    position: absolute;
-    top: 12px;
-    left: 8px;
-    display: flex;
-    gap: 12px;
-}
-
-.eye {
-    width: 6px;
-    height: 10px;
-    background: #000;
-    border-radius: 50%;
-    animation: blink 3s infinite;
-}
-
-@keyframes blink {
-    0%, 90%, 100% { transform: scaleY(1); }
-    95% { transform: scaleY(0.1); }
-}
-
-.cat-nose {
-    position: absolute;
-    top: 20px;
-    left: 18px;
-    width: 4px;
-    height: 3px;
-    background: #FF69B4;
-    border-radius: 50%;
-}
-
-.cat-mouth {
-    position: absolute;
-    top: 25px;
-    left: 16px;
-    width: 8px;
-    height: 6px;
-    border: 1px solid #000;
-    border-top: none;
-    border-radius: 0 0 50% 50%;
-}
-
-.cat-ears {
-    position: absolute;
-    top: 0;
-    left: 5px;
-    width: 50px;
-    height: 25px;
-}
-
-.ear {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 15px solid #FF8C00;
-}
-
-.ear.left {
-    left: 0;
-    transform: rotate(-20deg);
-}
-
-.ear.right {
-    right: 0;
-    transform: rotate(20deg);
-}
-
-.cat-tail {
-    position: absolute;
-    bottom: 15px;
-    right: -15px;
-    width: 25px;
-    height: 6px;
-    background: linear-gradient(90deg, #FF8C00, #FF7F00);
-    border-radius: 15px;
-    transform-origin: left center;
-    animation: tail-wag 1.2s ease-in-out infinite alternate;
-}
-
-@keyframes tail-wag {
-    0% { transform: rotate(-15deg); }
-    100% { transform: rotate(15deg); }
-}
-
-/* Estados del gato */
-.cat.jumping {
-    animation: cat-jump 0.9s ease-out;
-}
-
-@keyframes cat-jump {
-    0% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-80px) rotate(-12deg); }
-    50% { transform: translateY(-150px) rotate(-8deg); }
-    75% { transform: translateY(-170px) rotate(-5deg); }
-    100% { transform: translateY(0) rotate(0deg); }
-}
-
-.cat.running .cat-body {
-    animation: cat-run 0.3s ease-in-out infinite alternate;
-}
-
-@keyframes cat-run {
-    0% { transform: translateY(0px) scaleX(1); }
-    100% { transform: translateY(-4px) scaleX(1.02); }
-}
-
-/* === PLATAFORMA BASE === */
-.ground {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background: linear-gradient(to bottom, 
-        #8FBC8F 0%, 
-        #6B8E23 50%, 
-        #556B2F 100%);
-    border-top: 5px solid #4CAF50;
-    box-shadow: inset 0 5px 10px rgba(0,0,0,0.2);
-}
-
-.ground::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: repeating-linear-gradient(90deg, 
-        #4CAF50 0px, 
-        #4CAF50 10px, 
-        #45a049 10px, 
-        #45a049 20px);
-}
-
-/* === OBSTÁCULOS === */
-.obstacle {
-    position: absolute;
-    bottom: 120px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-/* Obstáculos de basura */
-.trash-can {
-    width: 40px;
-    height: 60px;
-    background: linear-gradient(145deg, #666, #444);
-    border-radius: 8px 8px 4px 4px;
-}
-
-.trash-can::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -4px;
-    width: 48px;
-    height: 12px;
-    background: #555;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.trash-can::after {
-    content: '🗑️';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-}
-
-/* Obstáculos pequeños */
-.small-obstacle {
-    width: 30px;
-    height: 40px;
-    background: linear-gradient(145deg, #8B4513, #654321);
-    border-radius: 6px;
-}
-
-.small-obstacle::after {
-    content: '📦';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px;
-}
-
-/* Troncos de árbol caídos */
-.fallen-tree {
-    width: 80px;
-    height: 30px;
-    background: linear-gradient(145deg, #8B4513, #654321);
-    border-radius: 15px;
-}
-
-.fallen-tree::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    width: 60px;
-    height: 4px;
-    background: repeating-linear-gradient(90deg, 
-        #654321 0px, 
-        #654321 8px, 
-        #5D4037 8px, 
-        #5D4037 12px);
-    border-radius: 2px;
-}
-
-/* Obstáculos altos */
-.high-obstacle {
-    width: 40px;
-    height: 80px;
-    background: linear-gradient(145deg, #696969, #2F4F4F);
-    border-radius: 8px;
-}
-
-.high-obstacle::after {
-    content: '🏗️';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-}
-
-/* Obstáculos móviles */
-.moving-obstacle {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(145deg, #DC143C, #8B0000);
-    border-radius: 10px;
-}
-
-.moving-obstacle::after {
-    content: '⚠️';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-}
-
-@keyframes moving-obstacle {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-30px); }
-}
-
-/* Obstáculos de agua */
-.water-obstacle {
-    width: 100px;
-    height: 25px;
-    background: linear-gradient(145deg, #4682B4, #191970);
-    border-radius: 50px;
-    bottom: 100px;
-}
-
-.water-obstacle::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 10px;
-    width: 80px;
-    height: 21px;
-    background: linear-gradient(145deg, #5F9EA0, #4169E1);
-    border-radius: 40px;
-    animation: water-flow 1.5s ease-in-out infinite;
-}
-
-.water-obstacle::after {
-    content: '🌊';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px;
-}
-
-@keyframes water-flow {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-}
-
-/* Escombros */
-.debris {
-    width: 60px;
-    height: 45px;
-    background: linear-gradient(145deg, #708090, #2F4F4F);
-    border-radius: 8px;
-    transform: rotate(15deg);
-}
-
-.debris::after {
-    content: '🧱';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px;
-}
-
-/* Obstáculos finales */
-.final-obstacle {
-    width: 90px;
-    height: 70px;
-    background: linear-gradient(145deg, #800080, #4B0082);
-    border-radius: 12px;
-    animation: final-obstacle-glow 2s ease-in-out infinite alternate;
-}
-
-.final-obstacle::after {
-    content: '⚡';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 28px;
-}
-
-@keyframes final-obstacle-glow {
-    0% { 
-        box-shadow: 0 0 20px rgba(128, 0, 128, 0.5);
+// === VARIABLES GLOBALES ===
+let game = {
+    // Estado del juego
+    isRunning: false,
+    isPaused: false,
+    startTime: 0,
+    
+    // Elementos del DOM
+    cat: null,
+    gameWorld: null,
+    gameContainer: null,
+    objectsContainer: null,
+    
+    // Estadísticas
+    score: 0,
+    lives: 3,
+    recycledItems: 0,
+    distance: 0,
+    currentLevel: 1,
+    
+    // Configuración base
+    config: {
+        catSpeed: 3,
+        jumpPower: 28,  // Salto MUCHO más alto
+        gravity: 0.5,   // Gravedad aún menor para vuelo más largo
+        autoScrollSpeed: 1.2,  // Velocidad más lenta para mayor duración
+        groundHeight: 120,
+        maxLives: 3
+    },
+    
+    // Estado del gato
+    catState: {
+        x: 150,
+        y: 0,
+        velocityY: 0,
+        isJumping: false,
+        isOnGround: true,
+        jumpCooldown: 0
+    },
+    
+    // Gestión de objetos
+    gameObjects: [],
+    
+    // Configuración de niveles - Cada nivel ~2 minutos (20 minutos total)
+    levels: [
+        {
+            level: 1,
+            name: "Patio Trasero",
+            description: "Primeros obstáculos en casa...",
+            targetDistance: 2500,  // ~2 minutos
+            spawnRate: 0.008,
+            scrollSpeed: 1.0,
+            obstacleTypes: ['trash-can', 'recyclable'],
+            difficultyMultiplier: 1
+        },
+        {
+            level: 2,
+            name: "Vecindario Tranquilo",
+            description: "Saliendo del barrio seguro",
+            targetDistance: 3000,  // ~2 minutos
+            spawnRate: 0.010,
+            scrollSpeed: 1.1,
+            obstacleTypes: ['trash-can', 'recyclable', 'small-obstacle'],
+            difficultyMultiplier: 1.1
+        },
+        {
+            level: 3,
+            name: "Parque Local",
+            description: "Primeros charcos contaminados",
+            targetDistance: 3500,  // ~2 minutos
+            spawnRate: 0.012,
+            scrollSpeed: 1.2,
+            obstacleTypes: ['trash-can', 'pollution-puddle', 'recyclable', 'power-up'],
+            difficultyMultiplier: 1.2
+        },
+        {
+            level: 4,
+            name: "Zona Comercial",
+            description: "Más basura y obstáculos",
+            targetDistance: 4000,  // ~2 minutos
+            spawnRate: 0.014,
+            scrollSpeed: 1.3,
+            obstacleTypes: ['trash-can', 'pollution-puddle', 'fallen-tree', 'recyclable', 'power-up'],
+            difficultyMultiplier: 1.3
+        },
+        {
+            level: 5,
+            name: "Bosque Contaminado",
+            description: "Troncos caídos bloquean el paso",
+            targetDistance: 4500,  // ~2 minutos
+            spawnRate: 0.016,
+            scrollSpeed: 1.4,
+            obstacleTypes: ['fallen-tree', 'trash-can', 'pollution-puddle', 'recyclable', 'power-up', 'high-obstacle'],
+            difficultyMultiplier: 1.4
+        },
+        {
+            level: 6,
+            name: "Zona Industrial",
+            description: "Contaminación intensa",
+            targetDistance: 5000,  // ~2 minutos
+            spawnRate: 0.018,
+            scrollSpeed: 1.5,
+            obstacleTypes: ['fallen-tree', 'trash-can', 'pollution-puddle', 'recyclable', 'power-up', 'high-obstacle', 'moving-obstacle'],
+            difficultyMultiplier: 1.6
+        },
+        {
+            level: 7,
+            name: "Río Contaminado",
+            description: "Obstáculos acuáticos peligrosos",
+            targetDistance: 5500,  // ~2 minutos
+            spawnRate: 0.020,
+            scrollSpeed: 1.6,
+            obstacleTypes: ['pollution-puddle', 'fallen-tree', 'trash-can', 'recyclable', 'power-up', 'water-obstacle', 'high-obstacle'],
+            difficultyMultiplier: 1.8
+        },
+        {
+            level: 8,
+            name: "Ciudad Abandonada",
+            description: "Escombros y basura por doquier",
+            targetDistance: 6000,  // ~2 minutos
+            spawnRate: 0.022,
+            scrollSpeed: 1.7,
+            obstacleTypes: ['fallen-tree', 'trash-can', 'pollution-puddle', 'recyclable', 'power-up', 'high-obstacle', 'moving-obstacle', 'debris'],
+            difficultyMultiplier: 2.0
+        },
+        {
+            level: 9,
+            name: "Último Tramo",
+            description: "¡Casa a la vista! Último esfuerzo",
+            targetDistance: 6500,  // ~2 minutos
+            spawnRate: 0.024,
+            scrollSpeed: 1.8,
+            obstacleTypes: ['fallen-tree', 'trash-can', 'pollution-puddle', 'recyclable', 'power-up', 'high-obstacle', 'moving-obstacle', 'final-obstacle'],
+            difficultyMultiplier: 2.2
+        },
+        {
+            level: 10,
+            name: "¡Llegada a Casa!",
+            description: "¡El hogar está muy cerca!",
+            targetDistance: 7000,  // ~2 minutos
+            spawnRate: 0.025,
+            scrollSpeed: 1.9,
+            obstacleTypes: ['fallen-tree', 'trash-can', 'pollution-puddle', 'recyclable', 'power-up', 'high-obstacle', 'moving-obstacle', 'final-obstacle'],
+            difficultyMultiplier: 2.5
+        }
+    ],
+    
+    // Control del scroll
+    worldOffset: 0,
+    lastSpawnX: 0
+};
+
+// Consejos ecológicos expandidos para 10 minutos de juego
+const ecoTips = [
+    "¡Separar la basura correctamente ayuda al medio ambiente!",
+    "Reciclar una lata de aluminio ahorra energía suficiente para ver TV por 3 horas.",
+    "Los árboles caídos pueden convertirse en compost natural si se manejan bien.",
+    "Evitar los charcos contaminados protege la vida acuática.",
+    "¡Cada acción ecológica cuenta para un planeta más limpio!",
+    "Reducir, reutilizar y reciclar: las 3 R's del cuidado ambiental.",
+    "Un gato feliz vive en un planeta limpio y saludable.",
+    "Las botellas de plástico tardan 450 años en descomponerse naturalmente.",
+    "Plantar un árbol puede absorber hasta 22kg de CO2 al año.",
+    "Usar transporte público reduce tu huella de carbono significativamente.",
+    "Los océanos contienen más de 5 billones de piezas de plástico.",
+    "Apagar las luces cuando no las uses ahorra energía y dinero.",
+    "El agua es un recurso limitado: ¡úsala conscientemente!",
+    "Los animales salvajes necesitan hábitats limpios para sobrevivir.",
+    "Compostar residuos orgánicos reduce la basura en un 30%.",
+    "Las energías renovables son el futuro de nuestro planeta.",
+    "Cada minuto se compran 1 millón de botellas plásticas en el mundo.",
+    "Los bosques producen el oxígeno que respiramos: ¡protégelos!",
+    "Caminar o usar bicicleta es saludable para ti y el planeta.",
+    "Elegir productos locales reduce la contaminación del transporte."
+];
+
+// Configuración de objetos del juego
+const objectConfig = {
+    'trash-can': {
+        width: 40,
+        height: 60,
+        damage: true,
+        points: 0,
+        type: 'obstacle'
+    },
+    'small-obstacle': {
+        width: 30,
+        height: 40,
+        damage: true,
+        points: 0,
+        type: 'obstacle'
+    },
+    'fallen-tree': {
+        width: 80,
+        height: 30,
+        damage: true,
+        points: 0,
+        type: 'obstacle'
+    },
+    'high-obstacle': {
+        width: 40,
+        height: 80,
+        damage: true,
+        points: 0,
+        type: 'obstacle'
+    },
+    'moving-obstacle': {
+        width: 50,
+        height: 50,
+        damage: true,
+        points: 0,
+        type: 'obstacle'
+    },
+    'water-obstacle': {
+        width: 100,
+        height: 25,
+        damage: true,
+        points: 0,
+        type: 'obstacle'
+    },
+    'debris': {
+        width: 60,
+        height: 45,
+        damage: true,
+        points: 0,
+        type: 'obstacle'
+    },
+    'final-obstacle': {
+        width: 90,
+        height: 70,
+        damage: true,
+        points: 0,
+        type: 'obstacle'
+    },
+    'pollution-puddle': {
+        width: 60,
+        height: 20,
+        damage: true,
+        points: 0,
+        type: 'obstacle'
+    },
+    'recyclable': {
+        width: 35,
+        height: 35,
+        damage: false,
+        points: 50,
+        type: 'collectible'
+    },
+    'power-up': {
+        width: 30,
+        height: 30,
+        damage: false,
+        points: 100,
+        type: 'powerup'
     }
-    100% { 
-        box-shadow: 0 0 40px rgba(128, 0, 128, 0.8);
+};
+
+// === INICIALIZACIÓN ===
+document.addEventListener('DOMContentLoaded', function() {
+    initializeGame();
+    setupEventListeners();
+    detectMobile();
+});
+
+function initializeGame() {
+    game.cat = document.getElementById('cat');
+    game.gameWorld = document.getElementById('gameWorld');
+    game.gameContainer = document.getElementById('gameContainer');
+    game.objectsContainer = document.getElementById('objectsContainer');
+    
+    updateCatPosition();
+    updateHUD();
+}
+
+function detectMobile() {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                     || window.innerWidth <= 768;
+    
+    if (isMobile) {
+        document.getElementById('mobileControls').style.display = 'flex';
+        setupMobileControls();
     }
 }
 
-/* Charcos de agua contaminada */
-.pollution-puddle {
-    width: 60px;
-    height: 20px;
-    background: linear-gradient(145deg, #4A4A4A, #2C2C2C);
-    border-radius: 30px;
-    bottom: 100px;
+// === GESTIÓN DE EVENTOS ===
+function setupEventListeners() {
+    // Controles de teclado
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
+    
+    // Controles táctiles
+    game.gameContainer.addEventListener('touchstart', handleTouch);
+    game.gameContainer.addEventListener('click', handleClick);
+    
+    // Prevenir scroll en móviles
+    document.addEventListener('touchmove', function(e) {
+        if (game.isRunning) {
+            e.preventDefault();
+        }
+    }, { passive: false });
 }
 
-.pollution-puddle::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 5px;
-    width: 50px;
-    height: 16px;
-    background: linear-gradient(145deg, #666, #333);
-    border-radius: 25px;
-    animation: puddle-bubble 2s ease-in-out infinite;
+function setupMobileControls() {
+    const jumpBtn = document.getElementById('jumpBtn');
+    
+    jumpBtn.addEventListener('touchstart', (e) => {
+        jump();
+        jumpBtn.style.background = 'rgba(76, 175, 80, 0.6)';
+        e.preventDefault();
+    });
+    
+    jumpBtn.addEventListener('touchend', (e) => {
+        jumpBtn.style.background = 'rgba(76, 175, 80, 0.3)';
+        e.preventDefault();
+    });
 }
 
-@keyframes puddle-bubble {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-}
-
-/* === COLECCIONABLES === */
-.recyclable {
-    position: absolute;
-    bottom: 130px;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    animation: float-collectible 2s ease-in-out infinite;
-    box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
-}
-
-.recyclable.bottle {
-    background: linear-gradient(145deg, #4CAF50, #388E3C);
-}
-
-.recyclable.bottle::before {
-    content: '♻️';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px;
-}
-
-.recyclable.can {
-    background: linear-gradient(145deg, #FFC107, #FF8F00);
-}
-
-.recyclable.can::before {
-    content: '🥤';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px;
-}
-
-@keyframes float-collectible {
-    0%, 100% { 
-        transform: translateY(0) scale(1);
-        box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
-    }
-    50% { 
-        transform: translateY(-10px) scale(1.05);
-        box-shadow: 0 5px 25px rgba(76, 175, 80, 0.8);
+function handleKeyDown(e) {
+    if (!game.isRunning || game.isPaused) return;
+    
+    switch(e.code) {
+        case 'Space':
+        case 'ArrowUp':
+        case 'KeyW':
+            jump();
+            e.preventDefault();
+            break;
+        case 'Escape':
+            togglePause();
+            e.preventDefault();
+            break;
     }
 }
 
-/* Power-ups especiales */
-.power-up {
-    position: absolute;
-    bottom: 140px;
-    width: 30px;
-    height: 30px;
-    background: linear-gradient(45deg, #FFD700, #FFA500);
-    border-radius: 50%;
-    animation: powerup-spin 3s linear infinite;
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+function handleKeyUp(e) {
+    // Actualmente solo usamos salto, no necesitamos manejar keyup
 }
 
-.power-up::before {
-    content: '⭐';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px;
-}
-
-@keyframes powerup-spin {
-    0% { 
-        transform: rotateY(0deg) scale(1);
-    }
-    50% { 
-        transform: rotateY(180deg) scale(1.1);
-    }
-    100% { 
-        transform: rotateY(360deg) scale(1);
+function handleTouch(e) {
+    if (game.isRunning && !game.isPaused) {
+        jump();
+        e.preventDefault();
     }
 }
 
-/* === TRANSICIÓN DE NIVEL === */
-.level-transition {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 200;
-    animation: level-transition-fade 0.5s ease-in-out;
+function handleClick(e) {
+    if (game.isRunning && !game.isPaused) {
+        jump();
+        e.preventDefault();
+    }
 }
 
-@keyframes level-transition-fade {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-.level-content {
-    text-align: center;
-    color: white;
-    background: rgba(255,255,255,0.1);
-    padding: 50px;
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-}
-
-.level-content h2 {
-    font-family: 'Fredoka One', cursive;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #FFD700;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-}
-
-.level-content p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    color: #E6E6FA;
-}
-
-.level-icon i {
-    font-size: 4rem;
-    color: #4CAF50;
-    animation: level-icon-bounce 1s ease-in-out infinite;
-}
-
-@keyframes level-icon-bounce {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-}
-
-/* === PROGRESO DEL NIVEL === */
-.level-progress {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    z-index: 100;
-}
-
-.progress-track {
-    width: 100%;
-    height: 15px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 2px solid rgba(255,255,255,0.3);
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #4CAF50, #8BC34A, #CDDC39);
-    width: 0%;
-    transition: width 0.5s ease;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-}
-
-.progress-label {
-    text-align: center;
-    color: white;
-    font-weight: 600;
-    font-size: 12px;
-    margin-top: 5px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-/* === MENSAJES DEL JUEGO === */
-.game-message {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255,255,255,0.95);
-    padding: 20px 30px;
-    border-radius: 15px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    opacity: 0;
-    transition: all 0.5s ease;
-    z-index: 150;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    border: 2px solid #4CAF50;
-    max-width: 300px;
-}
-
-.game-message.show {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.05);
-}
-
-/* === PANTALLA DE PAUSA === */
-.pause-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.pause-content {
-    background: rgba(255,255,255,0.1);
-    padding: 50px;
-    border-radius: 30px;
-    text-align: center;
-    color: white;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.pause-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #FFD700;
-}
-
-.current-stats {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-}
-
-.stat {
-    background: rgba(255,255,255,0.1);
-    padding: 15px 20px;
-    border-radius: 15px;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.pause-options {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.pause-btn-option {
-    background: linear-gradient(45deg, #4CAF50, #45a049);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.pause-btn-option:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
-}
-
-/* === PANTALLA DE FIN DE JUEGO === */
-.game-over-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    overflow-y: auto;
-}
-
-.game-over-content {
-    max-width: 600px;
-    width: 90%;
-    text-align: center;
-    color: white;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.result-icon {
-    font-size: 80px;
-    margin-bottom: 20px;
-    animation: result-bounce 1s ease-in-out;
-}
-
-.result-icon.success i {
-    color: #4CAF50;
-}
-
-.result-icon.failure i {
-    color: #FF6B6B;
-}
-
-@keyframes result-bounce {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-}
-
-.game-over-content h2 {
-    font-family: 'Fredoka One', cursive;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #FFD700;
-}
-
-.game-over-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #E6E6FA;
-}
-
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-    margin: 30px 0;
-}
-
-.stat-item {
-    background: rgba(255,255,255,0.1);
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.stat-item i {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #FFD700;
-}
-
-.stat-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 5px;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: #E6E6FA;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.eco-tip {
-    background: linear-gradient(45deg, #4CAF50, #45a049);
-    padding: 20px;
-    border-radius: 15px;
-    margin: 30px 0;
-}
-
-.eco-tip p {
-    font-weight: bold;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.eco-tip i {
-    color: #FFD700;
-    font-size: 1.5rem;
-}
-
-.game-over-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.game-over-btn {
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.game-over-btn.primary {
-    background: linear-gradient(45deg, #FF6B6B, #FF8E53);
-    color: white;
-}
-
-.game-over-btn.secondary {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.3);
-}
-
-.game-over-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* === CONTROLES MÓVILES === */
-.mobile-controls {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 150;
-}
-
-.mobile-btn {
-    width: 80px;
-    height: 80px;
-    background: rgba(76, 175, 80, 0.3);
-    border: 3px solid rgba(76, 175, 80, 0.5);
-    border-radius: 50%;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    font-weight: bold;
-}
-
-.mobile-btn span {
-    font-size: 0.8rem;
-    margin-top: 5px;
-}
-
-.mobile-btn:active {
-    background: rgba(76, 175, 80, 0.6);
-    transform: scale(0.95);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-    .mobile-only {
-        display: block !important;
+// === FUNCIONES PRINCIPALES DEL JUEGO ===
+function startGame() {
+    // Ocultar pantalla de inicio
+    document.getElementById('startScreen').style.display = 'none';
+    
+    // Mostrar contenedor del juego
+    game.gameContainer.style.display = 'block';
+    
+    // Mostrar controles móviles si es necesario
+    if (document.getElementById('mobileControls').style.display === 'flex') {
+        document.getElementById('mobileControls').style.display = 'flex';
     }
     
-    .desktop-only {
-        display: none !important;
-    }
+    // Reiniciar estado del juego
+    resetGameState();
     
-    .game-hud {
-        padding: 0 15px;
-        height: 70px;
-    }
+    // Iniciar el bucle del juego
+    game.isRunning = true;
+    game.startTime = Date.now();
     
-    .hud-left, .hud-right {
-        gap: 10px;
-    }
+    // Añadir clase de correr al gato
+    game.cat.classList.add('running');
     
-    .level-display, .score-display, .lives-display, .recycled-display, .distance-counter {
-        padding: 8px 12px;
-        font-size: 1rem;
-    }
+    gameLoop();
     
-    .cat {
-        width: 50px;
-        height: 50px;
-        left: 100px;
-    }
+    // Mostrar mensaje de inicio
+    showMessage("¡Corre y salta para llegar a casa!", 2500);
+}
+
+function resetGameState() {
+    game.score = 0;
+    game.lives = game.config.maxLives;
+    game.recycledItems = 0;
+    game.distance = 0;
+    game.currentLevel = 1;
+    game.isPaused = false;
     
-    .obstacle {
-        transform: scale(0.9);
-    }
+    game.catState = {
+        x: 150,
+        y: 0,
+        velocityY: 0,
+        isJumping: false,
+        isOnGround: true,
+        jumpCooldown: 0
+    };
     
-    .level-progress {
-        width: 250px;
-    }
+    game.gameObjects = [];
+    game.worldOffset = 0;
+    game.lastSpawnX = 0;
     
-    .start-content {
-        padding: 20px;
-    }
+    // Limpiar objetos del DOM
+    clearGameObjects();
     
-    .game-logo h1 {
-        font-size: 2.5rem;
-    }
-    
-    .control-grid {
-        gap: 15px;
-    }
-    
-    .stats-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-    
-    .current-stats {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .mobile-controls {
-        display: flex !important;
+    // Actualizar interfaz
+    updateCatPosition();
+    updateHUD();
+    updateLevelProgress();
+}
+
+function clearGameObjects() {
+    if (game.objectsContainer) {
+        game.objectsContainer.innerHTML = '';
     }
 }
 
-@media (max-width: 480px) {
-    .game-logo h1 {
-        font-size: 2rem;
+function gameLoop() {
+    if (!game.isRunning || game.isPaused) return;
+    
+    // Actualizar lógica del juego
+    updateCat();
+    updateWorldScroll();
+    spawnObjects();
+    updateObjects();
+    checkCollisions();
+    checkLevelProgress();
+    updateHUD();
+    updateLevelProgress();
+    
+    // Verificar condiciones de fin de juego
+    if (game.lives <= 0) {
+        endGame(false, "¡El gato se quedó sin vidas! La contaminación fue demasiada.");
+        return;
     }
     
-    .story-box {
-        padding: 20px;
+    if (game.currentLevel > game.levels.length) {
+        endGame(true, "¡El gato llegó a casa sano y salvo después de atravesar todos los niveles!");
+        return;
     }
     
-    .start-btn {
-        padding: 15px 25px;
-        font-size: 1.1rem;
+    // Continuar el bucle
+    requestAnimationFrame(gameLoop);
+}
+
+function updateCat() {
+    // Reducir cooldown de salto
+    if (game.catState.jumpCooldown > 0) {
+        game.catState.jumpCooldown--;
     }
     
-    .game-over-content {
-        padding: 20px;
+    // Aplicar gravedad
+    if (!game.catState.isOnGround) {
+        game.catState.velocityY += game.config.gravity;
+        game.catState.y += game.catState.velocityY;
+        
+        // Comprobar si ha aterrizado
+        if (game.catState.y >= 0) {
+            game.catState.y = 0;
+            game.catState.velocityY = 0;
+            game.catState.isOnGround = true;
+            game.catState.isJumping = false;
+            game.cat.classList.remove('jumping');
+        }
     }
     
-    .stats-container {
-        grid-template-columns: 1fr;
+    // Mantener al gato corriendo
+    if (game.catState.isOnGround && !game.cat.classList.contains('running')) {
+        game.cat.classList.add('running');
     }
     
-    .game-over-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .level-content {
-        padding: 30px 20px;
-    }
-    
-    .level-content h2 {
-        font-size: 2rem;
+    // Actualizar posición visual
+    updateCatPosition();
+}
+
+function updateCatPosition() {
+    game.cat.style.left = game.catState.x + 'px';
+    game.cat.style.bottom = (game.config.groundHeight + game.catState.y) + 'px';
+}
+
+function jump() {
+    if (game.catState.isOnGround && game.catState.jumpCooldown <= 0 && game.isRunning && !game.isPaused) {
+        game.catState.velocityY = -game.config.jumpPower;
+        game.catState.isJumping = true;
+        game.catState.isOnGround = false;
+        game.catState.jumpCooldown = 8; // Cooldown reducido para saltos más fluidos
+        
+        game.cat.classList.add('jumping');
+        game.cat.classList.remove('running');
+        
+        // Efecto visual de salto más dramático
+        createJumpEffect();
+        
+        // Mensaje ocasional de aliento
+        if (Math.random() < 0.1) { // 10% de probabilidad
+            const encouragements = ["¡Buen salto!", "¡Sigue así!", "¡Perfecto!", "¡Vuela alto!"];
+            const message = encouragements[Math.floor(Math.random() * encouragements.length)];
+            showMessage(message, 800);
+        }
     }
 }
 
-/* === UTILIDADES === */
-.desktop-only {
-    display: block;
-}
-
-.mobile-only {
-    display: none;
-}
-
-/* === ANIMACIONES ADICIONALES === */
-@keyframes slideInFromBottom {
-    from {
-        transform: translateY(100px);
-        opacity: 0;
+function createJumpEffect() {
+    // Efecto de salto en el suelo
+    const groundEffect = document.createElement('div');
+    groundEffect.style.cssText = `
+        position: absolute;
+        left: ${game.catState.x + 25}px;
+        bottom: ${game.config.groundHeight}px;
+        width: 30px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 40;
+    `;
+    
+    game.gameWorld.appendChild(groundEffect);
+    
+    // Animar y remover el efecto de suelo
+    groundEffect.animate([
+        { transform: 'scale(1)', opacity: 1 },
+        { transform: 'scale(3)', opacity: 0 }
+    ], {
+        duration: 400,
+        easing: 'ease-out'
+    }).onfinish = () => groundEffect.remove();
+    
+    // Crear estela de salto (partículas que siguen al gato)
+    createJumpTrail();
+    
+    // Efecto especial para saltos altos
+    if (game.jumpCounter && game.jumpCounter % 3 === 0) {
+        createSpecialJumpEffect();
     }
-    to {
-        transform: translateY(0);
-        opacity: 1;
+}
+
+// Nueva función para crear estela de salto
+function createJumpTrail() {
+    const trailCount = 3;
+    for (let i = 0; i < trailCount; i++) {
+        setTimeout(() => {
+            if (game.catState.isJumping) {
+                const trail = document.createElement('div');
+                trail.style.cssText = `
+                    position: absolute;
+                    left: ${game.catState.x + 20 + Math.random() * 20}px;
+                    bottom: ${game.config.groundHeight + game.catState.y + Math.random() * 30}px;
+                    width: 8px;
+                    height: 8px;
+                    background: rgba(255, 215, 0, 0.8);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 45;
+                `;
+                
+                game.gameWorld.appendChild(trail);
+                
+                trail.animate([
+                    { opacity: 1, transform: 'scale(1)' },
+                    { opacity: 0, transform: 'scale(0.3) translateY(20px)' }
+                ], {
+                    duration: 600,
+                    easing: 'ease-out'
+                }).onfinish = () => trail.remove();
+            }
+        }, i * 100);
     }
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+// Efecto especial para saltos múltiples
+function createSpecialJumpEffect() {
+    const specialEffect = document.createElement('div');
+    specialEffect.style.cssText = `
+        position: absolute;
+        left: ${game.catState.x}px;
+        bottom: ${game.config.groundHeight + game.catState.y}px;
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle, rgba(255,215,0,0.8), rgba(255,140,0,0.4), transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 42;
+    `;
+    
+    game.gameWorld.appendChild(specialEffect);
+    
+    specialEffect.animate([
+        { transform: 'scale(0.5) rotate(0deg)', opacity: 1 },
+        { transform: 'scale(2) rotate(180deg)', opacity: 0 }
+    ], {
+        duration: 800,
+        easing: 'ease-out'
+    }).onfinish = () => specialEffect.remove();
 }
 
-.slide-in {
-    animation: slideInFromBottom 0.5s ease-out;
+function updateWorldScroll() {
+    const currentLevel = getCurrentLevelConfig();
+    const scrollSpeed = currentLevel.scrollSpeed;
+    
+    // Incrementar distancia y offset del mundo
+    game.distance += scrollSpeed;
+    game.worldOffset += scrollSpeed;
+    
+    // Mover todos los objetos hacia la izquierda
+    game.gameObjects.forEach(obj => {
+        obj.x -= scrollSpeed;
+        if (obj.element) {
+            obj.element.style.left = obj.x + 'px';
+        }
+    });
+    
+    // Remover objetos que salieron de la pantalla
+    game.gameObjects = game.gameObjects.filter(obj => {
+        if (obj.x < -100) {
+            if (obj.element && obj.element.parentNode) {
+                obj.element.remove();
+            }
+            return false;
+        }
+        return true;
+    });
 }
 
-.fade-in {
-    animation: fadeIn 0.5s ease-out;
+function spawnObjects() {
+    const currentLevel = getCurrentLevelConfig();
+    const spawnChance = currentLevel.spawnRate;
+    
+    // Crear patrones más interesantes basados en la distancia
+    const patternModifier = Math.sin(game.distance * 0.0008) * 0.6 + 1; // Ondas de dificultad más pronunciadas
+    const adjustedSpawnChance = spawnChance * patternModifier;
+    
+    // Verificar si es momento de generar un nuevo objeto
+    const minDistance = game.currentLevel <= 3 ? 200 : 180; // Más espacio para niveles largos
+    const maxDistance = game.currentLevel <= 3 ? 400 : 350;
+    const requiredDistance = minDistance + Math.random() * (maxDistance - minDistance);
+    
+    if (Math.random() < adjustedSpawnChance && game.worldOffset > game.lastSpawnX + requiredDistance) {
+        
+        // Aumentar probabilidad de grupos en niveles largos
+        if (Math.random() < 0.25) { // 25% probabilidad de grupo
+            createObjectGroup(currentLevel);
+        } else {
+            const objectType = getRandomObjectType(currentLevel);
+            const spawnX = window.innerWidth + 50;
+            createGameObject(objectType, spawnX);
+        }
+        
+        game.lastSpawnX = game.worldOffset;
+    }
+    
+    // Spawn especial de power-ups cada cierta distancia (más frecuente para niveles largos)
+    if (game.distance > 0 && game.distance % 300 === 0 && game.worldOffset > game.lastSpawnX + 150) {
+        if (Math.random() < 0.8) { // 80% probabilidad
+            createGameObject('power-up', window.innerWidth + 100);
+        }
+    }
+    
+    // Spawn especial de coleccionables en rachas cada 500m
+    if (game.distance > 0 && game.distance % 500 === 0) {
+        createCollectibleStreak();
+    }
 }
+
+// Nueva función para crear rachas de coleccionables
+function createCollectibleStreak() {
+    const streakLength = 3 + Math.floor(Math.random() * 3); // 3-5 objetos
+    let spawnX = window.innerWidth + 100;
+    
+    for (let i = 0; i < streakLength; i++) {
+        setTimeout(() => {
+            if (game.isRunning && !game.isPaused) {
+                createGameObject('recyclable', spawnX + (i * 60));
+            }
+        }, i * 200); // Aparecen con 200ms de diferencia
+    }
+}
+
+// Nueva función para crear grupos de objetos más elaborados
+function createObjectGroup(levelConfig) {
+    const groupTypes = [
+        ['recyclable', 'recyclable', 'recyclable'], // Línea de reciclables
+        ['trash-can', 'recyclable', 'trash-can'],   // Intercalado
+        ['small-obstacle', 'recyclable', 'small-obstacle'], // Sandwich
+        ['pollution-puddle', 'power-up'],           // Salto y recompensa
+        ['small-obstacle', 'small-obstacle'],       // Doble salto
+        ['high-obstacle', 'recyclable', 'recyclable'], // Alto + recompensas
+        ['fallen-tree', 'recyclable'],              // Tronco + premio
+        ['moving-obstacle', 'power-up'],            // Desafío móvil + premio
+        ['debris', 'recyclable', 'debris'],         // Patrón complejo
+        ['water-obstacle', 'recyclable', 'recyclable'] // Agua + doble premio
+    ];
+    
+    const availableGroups = groupTypes.filter(group => 
+        group.every(type => levelConfig.obstacleTypes.includes(type))
+    );
+    
+    if (availableGroups.length === 0) return;
+    
+    const selectedGroup = availableGroups[Math.floor(Math.random() * availableGroups.length)];
+    let spawnX = window.innerWidth + 50;
+    
+    selectedGroup.forEach((type, index) => {
+        createGameObject(type, spawnX + (index * 90)); // Separación de 90px entre objetos
+    });
+}
+
+function getRandomObjectType(levelConfig) {
+    const types = levelConfig.obstacleTypes;
+    const weights = {
+        'trash-can': 0.20,
+        'small-obstacle': 0.15,
+        'fallen-tree': 0.15,
+        'high-obstacle': 0.12,
+        'moving-obstacle': 0.08,
+        'water-obstacle': 0.10,
+        'debris': 0.10,
+        'final-obstacle': 0.08,
+        'pollution-puddle': 0.12,
+        'recyclable': 0.25,  // Más coleccionables para mantener el interés
+        'power-up': 0.08
+    };
+    
+    const availableTypes = types.filter(type => weights[type]);
+    const random = Math.random();
+    let accumulated = 0;
+    
+    for (const type of availableTypes) {
+        accumulated += weights[type];
+        if (random <= accumulated) {
+            return type;
+        }
+    }
+    
+    return availableTypes[0];
+}
+
+function createGameObject(type, x) {
+    const config = objectConfig[type];
+    const element = document.createElement('div');
+    
+    // Configurar elemento visual
+    element.className = `obstacle ${type}`;
+    
+    // Posición especial según el tipo de obstáculo
+    let y = game.config.groundHeight;
+    
+    switch(type) {
+        case 'pollution-puddle':
+        case 'water-obstacle':
+            y = game.config.groundHeight - 20;
+            break;
+        case 'high-obstacle':
+            y = game.config.groundHeight;
+            break;
+        case 'moving-obstacle':
+            y = game.config.groundHeight;
+            // Añadir animación de movimiento vertical
+            element.style.animation = 'moving-obstacle 2s ease-in-out infinite alternate';
+            break;
+        case 'final-obstacle':
+            y = game.config.groundHeight;
+            break;
+        default:
+            y = game.config.groundHeight;
+    }
+    
+    element.style.left = x + 'px';
+    element.style.bottom = y + 'px';
+    
+    // Añadir al contenedor
+    game.objectsContainer.appendChild(element);
+    
+    // Crear objeto de juego
+    const gameObject = {
+        element: element,
+        type: type,
+        x: x,
+        y: y,
+        width: config.width,
+        height: config.height,
+        damage: config.damage,
+        points: config.points,
+        objectType: config.type,
+        originalY: y  // Para obstáculos móviles
+    };
+    
+    game.gameObjects.push(gameObject);
+    
+    // Efectos especiales para coleccionables
+    if (type === 'recyclable') {
+        addCollectibleVariant(element);
+    }
+    
+    // Efectos especiales para obstáculos específicos
+    if (type === 'power-up') {
+        element.style.animation = 'powerup-spin 3s linear infinite';
+    }
+}
+
+function addCollectibleVariant(element) {
+    const variants = ['bottle', 'can'];
+    const variant = variants[Math.floor(Math.random() * variants.length)];
+    element.classList.add(variant);
+}
+
+function updateObjects() {
+    // Los objetos ya se mueven en updateWorldScroll
+    // Aquí podemos añadir animaciones adicionales si es necesario
+    game.gameObjects.forEach(obj => {
+        if (obj.type === 'power-up' && obj.element) {
+            // Mantener animación de power-up
+            obj.element.style.animation = 'powerup-spin 3s linear infinite';
+        }
+    });
+}
+
+function checkCollisions() {
+    const catRect = {
+        x: game.catState.x + 5, // Margen de colisión
+        y: game.config.groundHeight + game.catState.y + 5,
+        width: 50,
+        height: 50
+    };
+    
+    game.gameObjects.forEach((obj, index) => {
+        if (isColliding(catRect, obj)) {
+            handleCollision(obj, index);
+        }
+    });
+}
+
+function isColliding(rect1, rect2) {
+    return rect1.x < rect2.x + rect2.width &&
+           rect1.x + rect1.width > rect2.x &&
+           rect1.y < rect2.y + rect2.height &&
+           rect1.y + rect1.height > rect2.y;
+}
+
+function handleCollision(obj, index) {
+    if (obj.damage && obj.objectType === 'obstacle') {
+        // Colisión dañina
+        game.lives--;
+        
+        // Efecto visual de daño
+        game.cat.style.filter = 'brightness(0.5) hue-rotate(0deg)';
+        setTimeout(() => {
+            if (game.cat) game.cat.style.filter = 'brightness(1)';
+        }, 300);
+        
+        // Mensaje de daño
+        showMessage("¡Auch! Perdiste una vida 💔", 1500);
+        
+        // Crear efecto de impacto
+        createImpactEffect(obj.x, obj.y);
+        
+    } else if (obj.objectType === 'collectible') {
+        // Coleccionable recogido
+        game.score += obj.points;
+        game.recycledItems++;
+        
+        // Mensaje de éxito
+        showMessage(`+${obj.points} puntos ♻️`, 1000);
+        
+        // Efecto de recolección
+        createCollectEffect(obj.x, obj.y);
+        
+    } else if (obj.objectType === 'powerup') {
+        // Power-up recogido
+        game.score += obj.points;
+        if (game.lives < game.config.maxLives) {
+            game.lives++;
+            showMessage(`¡Power-up! +1 Vida ⭐`, 1500);
+        } else {
+            showMessage(`¡Power-up! +${obj.points} puntos ⭐`, 1500);
+        }
+        
+        // Efecto de power-up
+        createPowerUpEffect(obj.x, obj.y);
+    }
+    
+    // Remover objeto
+    if (obj.element && obj.element.parentNode) {
+        obj.element.remove();
+    }
+    game.gameObjects.splice(index, 1);
+}
+
+function createImpactEffect(x, y) {
+    const effect = document.createElement('div');
+    effect.style.cssText = `
+        position: absolute;
+        left: ${x}px;
+        bottom: ${y}px;
+        width: 30px;
+        height: 30px;
+        background: radial-gradient(circle, #ff4444, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 60;
+    `;
+    
+    game.gameWorld.appendChild(effect);
+    
+    effect.animate([
+        { transform: 'scale(0.5)', opacity: 1 },
+        { transform: 'scale(2)', opacity: 0 }
+    ], {
+        duration: 400,
+        easing: 'ease-out'
+    }).onfinish = () => effect.remove();
+}
+
+function createCollectEffect(x, y) {
+    const effect = document.createElement('div');
+    effect.style.cssText = `
+        position: absolute;
+        left: ${x}px;
+        bottom: ${y}px;
+        width: 25px;
+        height: 25px;
+        background: radial-gradient(circle, #4CAF50, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 60;
+    `;
+    
+    game.gameWorld.appendChild(effect);
+    
+    effect.animate([
+        { transform: 'scale(1) translateY(0px)', opacity: 1 },
+        { transform: 'scale(1.5) translateY(-30px)', opacity: 0 }
+    ], {
+        duration: 500,
+        easing: 'ease-out'
+    }).onfinish = () => effect.remove();
+}
+
+function createPowerUpEffect(x, y) {
+    const effect = document.createElement('div');
+    effect.style.cssText = `
+        position: absolute;
+        left: ${x}px;
+        bottom: ${y}px;
+        width: 40px;
+        height: 40px;
+        background: radial-gradient(circle, #FFD700, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 60;
+    `;
+    
+    game.gameWorld.appendChild(effect);
+    
+    effect.animate([
+        { transform: 'scale(1) rotate(0deg)', opacity: 1 },
+        { transform: 'scale(2) rotate(360deg)', opacity: 0 }
+    ], {
+        duration: 600,
+        easing: 'ease-out'
+    }).onfinish = () => effect.remove();
+}
+
+function checkLevelProgress() {
+    const currentLevel = getCurrentLevelConfig();
+    const levelDistance = currentLevel.targetDistance;
+    
+    if (game.distance >= levelDistance && game.currentLevel <= game.levels.length) {
+        nextLevel();
+    }
+}
+
+function nextLevel() {
+    if (game.currentLevel < game.levels.length) {
+        game.currentLevel++;
+        showLevelTransition();
+    }
+}
+
+function showLevelTransition() {
+    const currentLevel = getCurrentLevelConfig();
+    const transition = document.getElementById('levelTransition');
+    const levelNumber = document.getElementById('newLevelNumber');
+    const levelDescription = document.getElementById('levelDescription');
+    
+    levelNumber.textContent = currentLevel.level;
+    levelDescription.textContent = currentLevel.description;
+    
+    transition.style.display = 'flex';
+    
+    // Pausar temporalmente el juego
+    game.isPaused = true;
+    
+    setTimeout(() => {
+        transition.style.display = 'none';
+        game.isPaused = false;
+        gameLoop(); // Reiniciar el bucle
+        
+        // Mensaje de nuevo nivel
+        showMessage(`¡Nivel ${currentLevel.level}: ${currentLevel.name}!`, 2500);
+    }, 3000);
+}
+
+function getCurrentLevelConfig() {
+    return game.levels[game.currentLevel - 1] || game.levels[game.levels.length - 1];
+}
+
+function updateHUD() {
+    document.getElementById('currentLevel').textContent = game.currentLevel;
+    document.getElementById('score').textContent = game.score;
+    document.getElementById('lives').textContent = game.lives;
+    document.getElementById('recycledCount').textContent = game.recycledItems;
+    document.getElementById('distance').textContent = Math.floor(game.distance);
+    
+    // Mostrar tiempo de juego
+    const survivalTime = Math.floor((Date.now() - game.startTime) / 1000);
+    const minutes = Math.floor(survivalTime / 60);
+    const seconds = survivalTime % 60;
+    document.getElementById('gameTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    
+    // Bonificación por tiempo de supervivencia (más frecuente para niveles largos)
+    if (survivalTime > 0 && survivalTime % 20 === 0) { // Cada 20 segundos
+        game.score += 15; // Bonificación aumentada por supervivencia
+    }
+    
+    // Mensajes de progreso más frecuentes para niveles largos
+    const currentLevel = getCurrentLevelConfig();
+    const levelProgress = (game.distance / currentLevel.targetDistance) * 100;
+    
+    // Mensajes cada 25% de progreso del nivel
+    if (Math.floor(levelProgress) % 25 === 0 && Math.floor(levelProgress) > 0) {
+        const progressMessages = [
+            `¡${Math.floor(levelProgress)}% del nivel completado!`,
+            `¡Sigue corriendo! ${Math.floor(levelProgress)}% hecho`,
+            `¡Excelente progreso! ${Math.floor(levelProgress)}%`,
+            `¡El gato confía en ti! ${Math.floor(levelProgress)}%`
+        ];
+        
+        if (survivalTime % 30 === 0) { // Solo mostrar cada 30 segundos para no saturar
+            const message = progressMessages[Math.floor(Math.random() * progressMessages.length)];
+            showMessage(message, 2000);
+        }
+    }
+    
+    // Mensajes de aliento cada minuto
+    if (survivalTime > 0 && survivalTime % 60 === 0) {
+        const gameTimeMinutes = Math.floor(survivalTime / 60);
+        const longEncouragements = [
+            `¡Increíble! Llevas ${gameTimeMinutes} minuto${gameTimeMinutes > 1 ? 's' : ''} corriendo!`,
+            `¡El gato está orgulloso de ti! ${gameTimeMinutes} minuto${gameTimeMinutes > 1 ? 's' : ''} de aventura`,
+            `¡Eres imparable! ${gameTimeMinutes} minuto${gameTimeMinutes > 1 ? 's' : ''} salvando el planeta`,
+            `¡Sigue así! Ya son ${gameTimeMinutes} minuto${gameTimeMinutes > 1 ? 's' : ''} de pura acción ecológica`
+        ];
+        const message = longEncouragements[Math.floor(Math.random() * longEncouragements.length)];
+        showMessage(message, 3000);
+    }
+    
+    // Mensajes especiales por hitos de reciclaje
+    if (game.recycledItems > 0 && game.recycledItems % 10 === 0) {
+        if (Math.random() < 0.3) { // 30% probabilidad para no saturar
+            showMessage(`¡${game.recycledItems} objetos reciclados! ¡Eres un héroe ecológico!`, 2500);
+        }
+    }
+}
+
+function updateLevelProgress() {
+    const currentLevel = getCurrentLevelConfig();
+    const progress = Math.min(100, (game.distance / currentLevel.targetDistance) * 100);
+    document.getElementById('levelProgressFill').style.width = progress + '%';
+}
+
+function showMessage(text, duration = 2000) {
+    const messageEl = document.getElementById('gameMessage');
+    messageEl.textContent = text;
+    messageEl.classList.add('show');
+    
+    setTimeout(() => {
+        messageEl.classList.remove('show');
+    }, duration);
+}
+
+function togglePause() {
+    if (!game.isRunning) return;
+    
+    game.isPaused = !game.isPaused;
+    
+    const pauseScreen = document.getElementById('pauseScreen');
+    const pauseIcon = document.getElementById('pauseIcon');
+    
+    if (game.isPaused) {
+        pauseScreen.style.display = 'flex';
+        pauseIcon.className = 'fas fa-play';
+        
+        // Actualizar estadísticas en pausa
+        document.getElementById('pauseLevel').textContent = game.currentLevel;
+        document.getElementById('pauseScore').textContent = game.score;
+        document.getElementById('pauseDistance').textContent = Math.floor(game.distance);
+        
+        // Pausar animaciones del gato
+        game.cat.classList.remove('running');
+    } else {
+        pauseScreen.style.display = 'none';
+        pauseIcon.className = 'fas fa-pause';
+        
+        // Reanudar animaciones del gato
+        if (game.catState.isOnGround) {
+            game.cat.classList.add('running');
+        }
+        
+        gameLoop(); // Reiniciar el bucle
+    }
+}
+
+function endGame(success, message) {
+    game.isRunning = false;
+    
+    // Parar animaciones del gato
+    game.cat.classList.remove('running', 'jumping');
+    
+    // Calcular estadísticas finales
+    const timeElapsed = Math.floor((Date.now() - game.startTime) / 1000);
+    
+    // Mostrar pantalla de fin de juego
+    const gameOverScreen = document.getElementById('gameOverScreen');
+    const resultIcon = document.getElementById('resultIcon');
+    const gameOverTitle = document.getElementById('gameOverTitle');
+    const gameOverMessage = document.getElementById('gameOverMessage');
+    const finalLevel = document.getElementById('finalLevel');
+    const finalScore = document.getElementById('finalScore');
+    const finalRecycled = document.getElementById('finalRecycled');
+    const finalDistance = document.getElementById('finalDistance');
+    const ecoTipText = document.getElementById('ecoTipText');
+    
+    // Configurar contenido según el resultado
+    if (success) {
+        resultIcon.innerHTML = '<i class="fas fa-trophy"></i>';
+        resultIcon.className = 'result-icon success';
+        gameOverTitle.textContent = '¡Misión Cumplida!';
+        gameOverMessage.textContent = message;
+    } else {
+        resultIcon.innerHTML = '<i class="fas fa-heart-broken"></i>';
+        resultIcon.className = 'result-icon failure';
+        gameOverTitle.textContent = '¡Inténtalo de nuevo!';
+        gameOverMessage.textContent = message;
+    }
+    
+    // Actualizar estadísticas
+    finalLevel.textContent = game.currentLevel;
+    finalScore.textContent = game.score;
+    finalRecycled.textContent = game.recycledItems;
+    finalDistance.textContent = Math.floor(game.distance) + 'm';
+    
+    // Mostrar consejo ecológico aleatorio
+    const randomTip = ecoTips[Math.floor(Math.random() * ecoTips.length)];
+    ecoTipText.textContent = randomTip;
+    
+    // Mostrar pantalla
+    gameOverScreen.style.display = 'flex';
+    
+    // Ocultar controles móviles
+    document.getElementById('mobileControls').style.display = 'none';
+}
+
+function resetGame() {
+    // Ocultar todas las pantallas
+    document.getElementById('gameOverScreen').style.display = 'none';
+    document.getElementById('pauseScreen').style.display = 'none';
+    document.getElementById('levelTransition').style.display = 'none';
+    game.gameContainer.style.display = 'none';
+    
+    // Mostrar pantalla de inicio
+    document.getElementById('startScreen').style.display = 'flex';
+    
+    // Resetear estado
+    game.isRunning = false;
+    game.isPaused = false;
+    
+    // Limpiar objetos y animaciones
+    clearGameObjects();
+    game.cat.classList.remove('running', 'jumping');
+}
+
+function showMainMenu() {
+    resetGame();
+}
+
+// === FUNCIONES DE UTILIDAD ===
+function getRandomEcoTip() {
+    return ecoTips[Math.floor(Math.random() * ecoTips.length)];
+}
+
+// === CONFIGURACIÓN INICIAL ===
+window.addEventListener('load', function() {
+    console.log('EcoCat Adventure - Plataformero Ecológico cargado correctamente');
+    
+    // Verificar compatibilidad
+    if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = function(callback) {
+            return setTimeout(callback, 1000 / 60);
+        };
+    }
+});
+
+// === PREVENCIÓN DE ERRORES ===
+window.addEventListener('error', function(e) {
+    console.error('Error en el juego:', e.error);
+    if (game.isRunning) {
+        showMessage('¡Error detectado! Reintentando...', 3000);
+    }
+});
+
+// Prevenir salida accidental
+window.addEventListener('beforeunload', function(e) {
+    if (game.isRunning && !game.isPaused) {
+        e.preventDefault();
+        e.returnValue = '¿Estás seguro? Tu progreso se perderá.';
+        return e.returnValue;
+    }
+});
+
+// === EXPORTAR FUNCIONES PRINCIPALES ===
+window.startGame = startGame;
+window.resetGame = resetGame;
+window.togglePause = togglePause;
+window.showMainMenu = showMainMenu;
