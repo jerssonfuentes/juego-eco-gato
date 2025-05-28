@@ -111,8 +111,40 @@ body {
 .story-box p {
     font-size: 1.1rem;
     line-height: 1.8;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #F0F8FF;
+}
+
+.game-features {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 15px;
+    min-width: 140px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.feature i {
+    font-size: 1.8rem;
+    color: #FFD700;
+    margin-bottom: 8px;
+}
+
+.feature span {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #E6E6FA;
+    font-weight: 600;
 }
 
 .eco-message {
@@ -510,13 +542,14 @@ body {
 
 /* Estados del gato */
 .cat.jumping {
-    animation: cat-jump 0.7s ease-out;
+    animation: cat-jump 0.9s ease-out;
 }
 
 @keyframes cat-jump {
     0% { transform: translateY(0) rotate(0deg); }
-    30% { transform: translateY(-100px) rotate(-8deg); }
-    70% { transform: translateY(-120px) rotate(-5deg); }
+    25% { transform: translateY(-80px) rotate(-12deg); }
+    50% { transform: translateY(-150px) rotate(-8deg); }
+    75% { transform: translateY(-170px) rotate(-5deg); }
     100% { transform: translateY(0) rotate(0deg); }
 }
 
